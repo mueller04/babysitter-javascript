@@ -13,7 +13,7 @@ describe('When Babysitter is given a start and end time: ', function(){
     });
 
     it('the result given when start time is at 5 pm', function(){
-      expect(babysitter.calculate(17, 18)).toEqual(true)
+      expect(babysitter.calculate(17, 18)).toEqual(12)
     });
 
     it('the result given when end time is after 4 am', function(){

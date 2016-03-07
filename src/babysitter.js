@@ -1,7 +1,25 @@
 function Babysitter(){
 
+var bedTime = 22;
+var bedTimePay = 12.00;
+
   Babysitter.prototype.calculate = function(beginTime, endTime){
-    return Babysitter.prototype.validateTime(beginTime, endTime);
+    isValidTime = Babysitter.prototype.validateTime(beginTime, endTime);
+
+    if (isValidTime === true){
+
+
+      var finish;
+      if (endTime > bedTime || endTime <= 4){
+        finish = bedTime;
+      } else {
+        finish = endTime;
+      }
+
+      return ((finish - beginTime) * bedTimePay)
+    } else {
+      return Babysitter.prototype.validateTime(beginTime, endTime);
+    }
 
   };
 
