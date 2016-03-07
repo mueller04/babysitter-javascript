@@ -1,7 +1,11 @@
 function Babysitter(){
 
   Babysitter.prototype.calculate = function(beginTime, endTime){
+    return Babysitter.prototype.validateTime(beginTime, endTime);
 
+  };
+
+  Babysitter.prototype.validateTime = function(beginTime, endTime) {
     if (beginTime < 17 && beginTime > 4) {
       return 'must start no earlier than 5 pm';
     }
@@ -10,4 +14,5 @@ function Babysitter(){
     }
     return true;
   };
+
 }
