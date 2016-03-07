@@ -28,6 +28,10 @@ describe('When Babysitter is given a start and end time: ', function(){
       expect(babysitter.calculate(22, 23)).toEqual(8)
     });
 
+    it('paid 12 per hour and 8 per hour start and bed time pay', function(){
+      expect(babysitter.calculate(17, 23)).toEqual(68)
+    });
+
   });
 
 
