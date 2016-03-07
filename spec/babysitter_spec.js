@@ -21,11 +21,11 @@ describe('When Babysitter is given a start and end time: ', function(){
     });
 
     it('paid 12 per hour from start to bed at 22', function(){
-      expect(babysitter.calculate(17, 23)).toEqual(60)
+      expect(babysitter.calculate(17, 22)).toEqual(60)
     });
 
     it('paid 8 per hour from bed to midnight at 22', function(){
-      expect(babysitter.calculate(17, 23)).toEqual(12)
+      expect(babysitter.calculate(22, 23)).toEqual(8)
     });
 
   });

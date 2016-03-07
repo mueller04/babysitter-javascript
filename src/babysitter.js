@@ -2,21 +2,25 @@ function Babysitter(){
 
 var bedTime = 22;
 var bedTimePay = 12.00;
+var midnight = 24;
+var midnightpay = 8.00;
 
   Babysitter.prototype.calculate = function(beginTime, endTime){
     isValidTime = Babysitter.prototype.validateTime(beginTime, endTime);
 
     if (isValidTime === true){
 
+      var total = 0;
 
-      var finish;
-      if (endTime > bedTime || endTime <= 4){
-        finish = bedTime;
-      } else {
-        finish = endTime;
+      for (i = beginTime; i < endTime; i++){
+        if (i < bedTime) {
+          total += bedTimePay;
+        } else {
+          total += midnightpay;
+        }
       }
+      return total;
 
-      return ((finish - beginTime) * bedTimePay)
     } else {
       return Babysitter.prototype.validateTime(beginTime, endTime);
     }
@@ -32,5 +36,7 @@ var bedTimePay = 12.00;
     }
     return true;
   };
+
+
 
 }
