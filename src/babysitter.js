@@ -17,12 +17,12 @@ var endTimePay = 16.00;
 
       var total = 0;
 
-      for (i = beginTime; i < endTime; i++){
-        if (i < bedTime) {
+      for (i = beginTime + 1; i <= endTime; i++){
+        if (i <= bedTime) {
           total += bedTimePay;
-        } else if (i < midnight){
+        } else if (i <= midnight){
           total += midnightpay;
-        } else if (i < endTime) {
+        } else {
           total += endTimePay;
         }
       }

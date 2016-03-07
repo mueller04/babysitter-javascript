@@ -36,6 +36,18 @@ describe('When Babysitter is given a start and end time: ', function(){
       expect(babysitter.calculate(24, 4)).toEqual(64)
     });
 
+    it('paid 8 per hour from bed to midnight at end at midnight', function(){
+      expect(babysitter.calculate(22, 24)).toEqual(16)
+    });
+
+    it('paid start to midnight', function(){
+      expect(babysitter.calculate(17, 24)).toEqual(76)
+    });
+
+    it('min start time to max end time test', function(){
+      expect(babysitter.calculate(17, 4)).toEqual(140)
+    });
+
   });
 
 
