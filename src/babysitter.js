@@ -4,19 +4,26 @@ var bedTime = 22;
 var bedTimePay = 12.00;
 var midnight = 24;
 var midnightpay = 8.00;
+var endTimePay = 16.00;
 
   Babysitter.prototype.calculate = function(beginTime, endTime){
     isValidTime = Babysitter.prototype.validateTime(beginTime, endTime);
 
     if (isValidTime === true){
 
+      if (endTime <= 4) {
+        endTime += 24;
+      }
+
       var total = 0;
 
       for (i = beginTime; i < endTime; i++){
         if (i < bedTime) {
           total += bedTimePay;
-        } else {
+        } else if (i < midnight){
           total += midnightpay;
+        } else if (i < endTime) {
+          total += endTimePay;
         }
       }
       return total;
