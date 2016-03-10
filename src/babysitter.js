@@ -1,3 +1,7 @@
+var returnobject = new Object();
+
+
+
 function Babysitter(){
 
 var bedTime = 22;
@@ -6,15 +10,16 @@ var midnight = 24;
 var midnightpay = 8.00;
 var endTimePay = 16.00;
 
-  Babysitter.prototype.calculate = function(beginTime, endTime){
-    isValidTime = Babysitter.prototype.validateTime(beginTime, endTime);
 
-    if (isValidTime === true){
+  Babysitter.prototype.calculate = function(beginTime, endTime){
+    timevalidator = Babysitter.prototype.validateTime(beginTime, endTime);
+
+    if (timevalidator.isValid === true){
 
       if (endTime <= 4) {
         endTime += 24;
       }
-      
+
       return Babysitter.prototype.addHours(beginTime, endTime);
 
     } else {
@@ -35,17 +40,24 @@ var endTimePay = 16.00;
         total += endTimePay;
       }
     }
-    return total;
+    returnobject.pay = total;
+    return returnobject;
   }
 
   Babysitter.prototype.validateTime = function(beginTime, endTime) {
     if (beginTime < 17 && beginTime > 4) {
-      return 'must start no earlier than 5 pm';
+      //return 'must start no earlier than 5 pm';
+      returnobject.message = 'must start no earlier than 5 pm';
+      returnobject.isValid = false;
+      return returnobject;
     }
     if (endTime > 4 && endTime < 17){
-      return 'must end no later than 4 am';
+      returnobject.message = 'must end no later than 4 am';
+      returnobject.isValid = false;
+      return returnobject;
     }
-    return true;
+    returnobject.isValid = true;
+    return returnobject;
   };
 
 
